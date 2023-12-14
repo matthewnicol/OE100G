@@ -1,0 +1,11 @@
+Episode 1:
+
+    This resource has been so helpful in regard to getting OpenGL to work with the Win32 API:
+    https://stackoverflow.com/questions/45518843/initializing-opengl-without-libraries
+
+    Glossary of Win32 Window Types:
+        HGLRC     - OpenGL Rendering Context
+        HDC       - Handle to a Device Context
+        HWND      - Handle to a Window
+        HINSTANCE - Handle to this program's instance
+        WNDCLASSA - Window Class (A for ANSI)
