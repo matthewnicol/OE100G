@@ -9,6 +9,7 @@ This script handles our game engine's build workflow.
 import glob  # For finding files
 import os    # For system calls
 import sys   # For command line arguments
+import shlex # For parsing command to send to clang
 
 ENGINE = "OURBINARY"
 CLANG = "clang.exe"
@@ -79,7 +80,10 @@ def clang(filename, cStandard,
                 
 def main():
     filesToCompile = findFiles(f"..{os.sep}src{os.sep}", "c", exclude=["test.c"])
-    clang(ENGINE, "c11", files=filesToCompile, includeDirs=["../src", "../include"])
+    flags = []
+    if "--name" in sys.argv:
+        flags.append(" ".join(["-D", 'NBASE_WINDOW_NAME="' + sys.argv[sys.argv.index('--name')+1] + '"']))
+    clang(ENGINE, "c11", files=filesToCompile, includeDirs=["../src", "../include"], flags=flags)
     
     if "--run" in sys.argv:
         os.system(f"..{os.sep}build{os.sep}{ENGINE}")
