@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/OURBINARY.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "console": "internalConsole",
+            "preLaunchTask": "Build Engine"
+        },
+
+        {
+            "name": "(Windows) Tests",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/OURTESTS.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "console": "internalConsole",
+            "preLaunchTask": "Build Tests"
+        },
+    ]
+}

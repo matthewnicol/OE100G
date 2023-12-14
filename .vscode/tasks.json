@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Engine",
+            "type": "shell",
+            "command": "python3",
+            "options": {
+                "cwd": "${workspaceFolder}/build",
+            },
+            "args": ["${workspaceFolder}/bin/build.py"]
+        },
+        {
+            "label": "Build and Run Engine",
+            "type": "shell",
+            "command": "python3",
+            "options": {
+                "cwd": "${workspaceFolder}/build",
+            },
+            "args": ["${workspaceFolder}/bin/build.py", "--run"]
+        },
+        {
+            "label": "Profile Engine",
+            "type": "shell",
+            "command": "C:/Program Files (x86)/Intel/oneAPI/setvars.bat",
+            "args": ["ia32", "vs2019"],
+        }
+    ]
+}
