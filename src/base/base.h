@@ -21,8 +21,8 @@
 #pragma comment(lib, "gdi32")
 #pragma comment(lib, "user32")
 
-#define MIN(A,B) (((A) < (B)) ? (A) : (B))
-#define MAX(A,B) (((A) > (B)) ? (A) : (B))
+#define MIN(A, B) (((A) < (B)) ? (A) : (B))
+#define MAX(A, B) (((A) > (B)) ? (A) : (B))
 
 // TYPES
 
@@ -39,8 +39,13 @@ typedef double F64;
 
 // ASSERTION + EXCEPTION
 
-#define ASSERT(E) ((void)((E) || (NBASE_Error(__FILE__, __LINE__, "Assertion failed: %s", #E), 0)))
-#define ASSERT_WITH_MESSAGE(E, M, ...) ((void)((E) || (NBASE_Error(__FILE__, __LINE__, "Assertion failed: %s\n" M, #E, __VA_ARGS__), 0)))
+#define ASSERT(E)                                                              \
+  ((void)((E) ||                                                               \
+          (NBASE_Error(__FILE__, __LINE__, "Assertion failed: %s", #E), 0)))
+#define ASSERT_WITH_MESSAGE(E, M, ...)                                         \
+  ((void)((E) || (NBASE_Error(__FILE__, __LINE__, "Assertion failed: %s\n" M,  \
+                              #E, __VA_ARGS__),                                \
+                  0)))
 void NBASE_Error(const char *file, S32 line, const char *format, ...);
 
 void NBASE_OSWindow_startup(S32 width, S32 height);

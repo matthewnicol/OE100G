@@ -1,7 +1,7 @@
 #include "base.h"
 #include <windows.h>
 #include <wingdi.h>
-#include <winuser.h>
+
 #include <GL/gl.h>
 #include <GL/wglext.h>
 
@@ -112,7 +112,6 @@ void NBASE_OSWindow_handleEvents() {
 }
 
 // Window Creation
-
 HGLRC initialiseOpenGL(HDC real_dc);
 HWND createWindow(HINSTANCE inst, S32 width, S32 height, S32 bitsPerPixel,
                   S32 isFullScreen);
@@ -145,8 +144,7 @@ void NBASE_OSWindow_startup(S32 width, S32 height) {
   ShowWindow(window, 1);
 }
 
-HGLRC
-startupAndBindOpenGLToWindow(HDC bindToDC) {
+HGLRC initialiseOpenGL(HDC bindToDC) {
   {
     // Create a dummy OpenGL context so we can get access to
     // wglChoosePixelFormatARB / wglCreateContextAttribsARB. We use this to

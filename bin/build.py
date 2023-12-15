@@ -9,7 +9,6 @@ This script handles our game engine's build workflow.
 import glob  # For finding files
 import os    # For system calls
 import sys   # For command line arguments
-import shlex # For parsing command to send to clang
 
 ENGINE = "OURBINARY"
 CLANG = "clang.exe"
@@ -46,7 +45,7 @@ def clang(filename, cStandard,
           libraries=None, 
           linkDirs=None, 
           includeDirs=None, 
-          compileCommands=False):
+          compileCommands=True):
     """
     Compiles our project using clang (msvc wrapper)
     """
